@@ -25,7 +25,7 @@ public class Shop : MonoBehaviour
     }
     public void CheckTransaction(Item item, Inventory seller, Inventory buyer, float priceMultipler)
     {
-        if (buyer.Gold >= item.Price && buyer.MaxWeight - buyer.CurrentWeight >= item.Weight)
+        if (buyer.Gold >= item.Price * priceMultipler && buyer.MaxWeight - buyer.CurrentWeight >= item.Weight)
         {
             buyer.AddItem(item, priceMultipler);
             Debug.Log($"{buyer.name} have bought {item.name}");
